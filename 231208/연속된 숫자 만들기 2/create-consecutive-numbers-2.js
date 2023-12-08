@@ -13,6 +13,13 @@ rl.on('line', input => {
 });
 
 rl.on('close', () => {
-    console.log(Math.min(arr[1] - arr[0], arr[2] - arr[1]) - 1);
+    arr.sort((a, b) => a - b);
+    
+    let result;
+    if (arr[1] - arr[0] === 1 && arr[2] - arr[1] === 1) result = 0;
+    else if (arr[1] - arr[0] === 2 || arr[2] - arr[1] === 2) result = 1;
+    else result = 2;
+
+    console.log(result);
     process.exit();
 })
